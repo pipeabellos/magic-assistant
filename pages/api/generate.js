@@ -5,7 +5,7 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `Write me a corporate email from Microsoft in a happy style with the content below. Please write it in first person. try to be assertive.
+const basePromptPrefix = `Write me a corporate email from Microsoft in a happy style with the content below. Please write it in first person. try to be assertive and friendly and positive.
 
                             Content:`;
 const generateAction = async (req, res) => {
