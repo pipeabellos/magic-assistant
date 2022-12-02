@@ -5,9 +5,7 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `Write me a Linkedin post in the style of Paul Graham with the title below. Please write it in first person. Try to be a little contrarian and also assertive.
-
-                          Title:`;
+const basePromptPrefix = `I'm currently using a gatekeeper app called "Letsmute.com" to help me keep my inbox clean and out of the clutter. Please Answer as me the following Linkedin Message showing the sender that I'm currently flooded with messages and that the only way I'll be able to see the sender message is if he or she donates to a nonprofit that I currently support. Also be polite and never offer a meeting: `;
 const generateAction = async (req, res) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`)
