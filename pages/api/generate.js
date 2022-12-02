@@ -5,9 +5,9 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `Write me a corporate email from Microsoft in a happy style with the content below. Please write it in first person. try to be assertive.
+const basePromptPrefix = `Write me a Linkedin post in the style of Paul Graham with the title below. Please write it in first person. Try to be a little contrarian and also assertive.
 
-                            Content:`;
+                          Title:`;
 const generateAction = async (req, res) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`)
