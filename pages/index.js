@@ -38,7 +38,7 @@ const callGenerateEndpoint = async () => {
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>HelloGuru Magic Linkedin Post Autoresponder</h1>
+            <h1>HelloGuru Magic Linkedin Post Generator</h1>
           </div>
           <div className="header-subtitle">
             <h2>Create LinkedIn posts for doing Thought Leadership</h2>
