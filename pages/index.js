@@ -1,53 +1,73 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import buildspaceLogo from '../assets/buildspace-logo.png';
-import { useState } from 'react';
+import helloGuruLogo from '../assets/logo.svg';
+import { useState, useEffect } from 'react';
+
 
 const Home = () => {
   const [userInput, setUserInput] = useState('');
   const [apiOutput, setApiOutput] = useState('')
-const [isGenerating, setIsGenerating] = useState(false)
+  const [isGenerating, setIsGenerating] = useState(false)
 
-const callGenerateEndpoint = async () => {
-  setIsGenerating(true);
-  
-  console.log("Calling OpenAI...")
-  const response = await fetch('/api/generate', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ userInput }),
-  });
+  // Initialize the Crisp chat widget when the component mounts
+  useEffect(() => {
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = "129706f8-0e68-4f0b-86a5-1033040ecb14";
 
-  const data = await response.json();
-  const { output } = data;
-  console.log("OpenAI replied...", output.text)
+    const d = document;
+    const s = d.createElement("script");
 
-  setApiOutput(`${output.text}`);
-  setIsGenerating(false);
-}
-  
-  
+    s.src = "https://client.crisp.chat/l.js";
+    s.async = 1;
+    d.getElementsByTagName("head")[0].appendChild(s);
+
+    const chatbox = document.createElement("div");
+    chatbox.setAttribute("id", "crisp-chatbox");
+    document.body.appendChild(chatbox);
+  }, []);
+
+  const callGenerateEndpoint = async () => {
+    setIsGenerating(true);
+
+    console.log("Calling OpenAI...")
+    const response = await fetch('/api/generate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userInput }),
+    });
+
+    const data = await response.json();
+    const { output } = data;
+    console.log("OpenAI replied...", output.text)
+
+    setApiOutput(`${output.text}`);
+    setIsGenerating(false);
+  }
+
   const onUserChangedText = (event) => {
-   /* console.log(event.target.value); */
     setUserInput(event.target.value);
   };
+
   return (
+    
     <div className="root">
       <div className="container">
         <div className="header">
+          <div className="header-icon">
+            <Image src={helloGuruLogo} alt="Logo" width="40px"/>
+          </div>
           <div className="header-title">
-            <h1>HelloGuru Magic Linkedin Post Generator</h1>
+            <h1>LinkedIn Post Generator</h1>
           </div>
           <div className="header-subtitle">
             <h2>Create LinkedIn posts for doing Thought Leadership</h2>
           </div>
         </div>
-        {/* Add this code here*/}
         <div className="prompt-container">
           <textarea
-            placeholder="type here the topic of the post"
+            placeholder="Type here the topic of the post and click on Generate"
             className="prompt-box"
             value={userInput}
             onChange={onUserChangedText}
@@ -62,23 +82,24 @@ const callGenerateEndpoint = async () => {
                 </div>
               </a>
             </div>
-          {/* New code I added here */}
           {apiOutput && (
-          <div className="output">
-            <div className="output-header-container">
-              <div className="output-header">
-                <h3>Output</h3>
+            <div className="output">
+              <div className="output-header-container">
+                <div className="output-header">
+                  <h3>Output</h3>
+                </div>
+              </div>
+              <div className="output-content">
+                <p>{apiOutput}</p>
               </div>
             </div>
-            <div className="output-content">
-              <p>{apiOutput}</p>
-            </div>
-          </div>
-        )}
+          )}
         </div>
       </div>
     </div>
+    
   );
+  
 };
 
 export default Home;

@@ -40,12 +40,19 @@ body {
     flex-direction: column;
     width: 100%;
     align-items: center;
-    color: #FFF
+    color: #FFF;
+    text-align: left;
 }
 
 .header-title {
     display: flex;
     gap: 12px;
+}
+
+.header-icon {
+    display: inline-block;
+    justify-content: flex-start;
+    margin-bottom: 80px;   
 }
 
 .header-title h1 {
@@ -172,7 +179,7 @@ textarea {
 .generate-button {
     place-content: flex-start;
     align-items: flex-start;
-    background-color: rgb(255, 79, 18);
+    background-color: #FF5869;
     border-radius: 100px;
     display: flex;
     flex: 0 0 auto;
