@@ -73,14 +73,20 @@ const Home = () => {
             onChange={onUserChangedText}
           />
             <div className="prompt-buttons">
-              <a
-                className={isGenerating ? 'generate-button loading' : 'generate-button'}
-                onClick={callGenerateEndpoint}
-              >
-                <div className="generate">
-                {isGenerating ? <span class="loader"></span> : <p>Generate</p>}
-                </div>
-              </a>
+              <div className="button-container">
+                <a
+                  className={isGenerating ? 'generate-button loading' : 'generate-button'}
+                  onClick={callGenerateEndpoint}
+                >
+                  <div className="generate">
+                  {isGenerating ? <span class="loader"></span> : <p>Generate</p>}
+                  </div>
+                </a>
+              <br />
+          <a href="https://airtable.com/shrlNbMV1SdpmoPoB" target="_blank" className="subscribe-link">
+            Subscribe for updates
+          </a>
+            </div>
             </div>
           {apiOutput && (
             <div className="output">
