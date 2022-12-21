@@ -7,10 +7,10 @@ export default function Document() {
     <Html>
       <Head>
         <meta property="og:title" content="GPT-3 Writer" key="title"/>
-        <meta property="og:description" content="build with HelloGuru" key="description"/>
+        <meta property="og:description" content="Magic by HelloGuru" key="description"/>
         <meta
           property="og:image"
-          content="https://cdn.buildspace.so/courses/gpt3-writer/project-og.jpg"
+          content="https://s3.amazonaws.com/appforest_uf/f1671651880628x655240204685085800/Screenshot%202022-12-21%20at%2014.43.48.png"
         />
         <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
