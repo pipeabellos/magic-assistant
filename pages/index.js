@@ -42,6 +42,16 @@ const Home = () => {
     const { output } = data;
     console.log("OpenAI replied...", output.text)
 
+    const handleSubmit = () => {
+      // track email, and time of the subscription
+      global.analytics.track('User Generated Post', 
+      { userInput, 
+      time: Date.now() 
+      });
+      };
+    
+    handleSubmit();
+    
     setApiOutput(`${output.text}`);
     setIsGenerating(false);
   }

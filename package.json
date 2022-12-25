@@ -11,6 +11,8 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@segment/analytics-next": "^1.48.0",
+    "@segment/snippet": "^4.15.3",
     "@vercel/analytics": "^0.1.6",
     "crisp-chat": "^1.0.0",
     "eslint": "8.27.0",

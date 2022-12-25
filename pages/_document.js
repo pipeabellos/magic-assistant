@@ -2,6 +2,7 @@ import { Html, Head, Main, NextScript } from 'next/document'
 
 <link rel="icon" href="../assets/favicon.jpg" type="image/x-icon" />
 
+
 export default function Document() {
   return (
     <Html>
