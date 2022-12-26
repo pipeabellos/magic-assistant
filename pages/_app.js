@@ -28,7 +28,8 @@ function App({ Component, pageProps }) {
       <Script
         id="segment-script"
         dangerouslySetInnerHTML={{ __html: renderSnippet() }}
-      />      
+      /> 
+      <Script src="https://arc.io/widget.min.js#5QGNEEZJ" />    
       <Component {...pageProps} />
       <Analytics />
     </>
