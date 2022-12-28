@@ -69,15 +69,15 @@ const Home = () => {
             <Image src={helloGuruLogo} alt="Logo" width="40px"/>
           </div>
           <div className="header-title">
-            <h1>LinkedIn Post Generator</h1>
+            <h1>Magic Shopping Assistant</h1>
           </div>
           <div className="header-subtitle">
-            <h2>Create LinkedIn posts for doing Thought Leadership</h2>
+            <h2>Buy products on autopilot</h2>
           </div>
         </div>
         <div className="prompt-container">
           <textarea
-            placeholder="Type here the topic of the post and click on Generate"
+            placeholder="Type here the proucts you need to buy and click on Generate"
             className="prompt-box"
             value={userInput}
             onChange={onUserChangedText}

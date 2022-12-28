@@ -5,9 +5,9 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `Write me a Linkedin post in the style of Paul Graham with the title below. Please write it in first person. Try to be a little contrarian and also assertive.
+const basePromptPrefix = `Make a bullet list made up only of urls from website where I can buy the following products.
 
-                        Title:`;
+                        URLs:\n`;
 const generateAction = async (req, res) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`)
@@ -16,7 +16,7 @@ const generateAction = async (req, res) => {
     model: 'text-davinci-003',
     prompt: `${basePromptPrefix}${req.body.userInput}\n`,
     temperature: 0.7,
-    max_tokens: 250,
+    max_tokens: 1200,
   });
   
   const basePromptOutput = baseCompletion.data.choices.pop();
