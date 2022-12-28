@@ -5,16 +5,14 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
-const basePromptPrefix = `Make a bullet list made up only of urls from website where I can buy the following products.
-
-                        URLs:\n`;
+const basePromptPrefix = `Make a bullet list made up only of urls from website where I can buy the following products:`;
 const generateAction = async (req, res) => {
   // Run first prompt
   console.log(`API: ${basePromptPrefix}${req.body.userInput}`)
 
   const baseCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
-    prompt: `${basePromptPrefix}${req.body.userInput}\n`,
+    prompt: `${basePromptPrefix}${req.body.userInput}\n URLs:`,
     temperature: 0.7,
     max_tokens: 1200,
   });
